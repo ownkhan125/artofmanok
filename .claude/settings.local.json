@@ -63,7 +63,12 @@
       "Bash(node run.js \"C:/Users/General/AppData/Local/Temp/playwright-find-overflow.js\")",
       "Bash(node run.js \"C:/Users/General/AppData/Local/Temp/playwright-footer-shot.js\")",
       "Bash(node run.js /tmp/playwright-aom-crawl.js)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(mv home/hero-leather-stack.jpg images/hero-1.jpg)",
+      "Bash(mv home/hero-pen-writing.jpg images/hero-2.jpg)",
+      "Bash(mv home/hero-workspace.jpg images/hero-3.jpg)",
+      "Bash(mv categories/calendar.jpg images/category-calendar.jpg)",
+      "Bash(mv categories/washi-tapes.jpg images/category-washi-tapes.jpg)"
     ]
   }
 }

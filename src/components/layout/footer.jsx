@@ -8,14 +8,19 @@ import Container from '@/components/ui/container'
 import {
   ArrowRightIcon,
   ArrowUpIcon,
+  DarazIcon,
   FacebookIcon,
   InstagramIcon,
+  TikTokIcon,
 } from '@/components/ui/icons'
+import { BRAND } from '@/constants/assets'
 import { FOOTER_LINKS, SITE_CONFIG } from '@/constants/site'
 
 const SOCIAL_ICON = {
   instagram: InstagramIcon,
   facebook: FacebookIcon,
+  tiktok: TikTokIcon,
+  daraz: DarazIcon,
 }
 
 const FOOTER_GROUPS = [
@@ -65,7 +70,7 @@ const Footer = () => {
               className="inline-flex items-center"
             >
               <Image
-                src="/assets/images/logo.png"
+                src={BRAND.footerLogo}
                 alt={SITE_CONFIG.fullName}
                 width={300}
                 height={68}
@@ -73,9 +78,14 @@ const Footer = () => {
                 className="h-10 w-auto invert"
               />
             </Link>
-            <p className="mt-6 max-w-sm font-display text-[20px] font-light italic leading-[1.25] text-white">
-              Considered stationery, made for desks that mean something.
-            </p>
+            <Image
+              src={BRAND.footerLogo}
+              alt={SITE_CONFIG.fullName}
+              width={371}
+              height={181}
+              sizes="(min-width: 1024px) 220px, (min-width: 768px) 200px, 180px"
+              className="mt-6 h-auto w-44 max-w-full md:w-48 lg:w-52"
+            />
             <a
               href={`mailto:${SITE_CONFIG.email}`}
               className="mt-6 inline-block text-[13px] tracking-wide text-white/60 transition-colors hover:text-white"

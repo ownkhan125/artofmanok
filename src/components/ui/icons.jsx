@@ -124,6 +124,20 @@ export const FacebookIcon = ({ className = 'size-4' }) => (
 )
 FacebookIcon.propTypes = { className: PropTypes.string }
 
+export const TikTokIcon = ({ className = 'size-4' }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
+    <path d="M16.5 3h-2.7v11.6a2.5 2.5 0 1 1-2.5-2.5c.22 0 .43.03.63.08V9.43a5.2 5.2 0 1 0 4.57 5.17V8.66a6.05 6.05 0 0 0 3.5 1.12V7.06a3.55 3.55 0 0 1-3.5-3.55V3Z" />
+  </svg>
+)
+TikTokIcon.propTypes = { className: PropTypes.string }
+
+export const DarazIcon = ({ className = 'size-4' }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
+    <path d="M5.5 4h6.4a8 8 0 0 1 0 16H5.5V4Zm3 2.8v10.4h3.4a5.2 5.2 0 0 0 0-10.4H8.5Z" />
+  </svg>
+)
+DarazIcon.propTypes = { className: PropTypes.string }
+
 export const ArrowUpIcon = ({ className = 'size-4' }) => (
   <svg viewBox="0 0 24 24" className={className} {...baseProps}>
     <path d="M12 19V5" />

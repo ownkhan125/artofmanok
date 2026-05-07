@@ -28,6 +28,8 @@ export const SITE_CONFIG = {
   social: [
     { id: 'instagram', label: 'Instagram', href: 'https://instagram.com/artofmanok' },
     { id: 'facebook', label: 'Facebook', href: 'https://facebook.com/artofmanok' },
+    { id: 'tiktok', label: 'TikTok', href: 'https://www.tiktok.com/@manok996' },
+    { id: 'daraz', label: 'Daraz', href: 'https://www.daraz.pk/shop/7zl3gzas' },
   ],
 }
 
@@ -637,8 +639,8 @@ export const TESTIMONIALS = [
     author: 'Lina M.',
     source: 'via Instagram',
     rating: 5,
-    image: PRODUCT_IMAGES.poetryBook,
-    alt: 'A leather journal on a small wooden side table',
+    image: '/assets/images/testimonial-1.png',
+    alt: "Lina M.'s review featuring Art of Mano K stationery",
     badge: 'Customer favourite',
   },
   {
@@ -649,8 +651,8 @@ export const TESTIMONIALS = [
     author: 'Noor K.',
     source: 'via review form',
     rating: 5,
-    image: PRODUCT_IMAGES.fountainPen,
-    alt: 'A close-up of a fountain pen on cursive script',
+    image: '/assets/images/testimonial-2.png',
+    alt: "Noor K.'s review featuring Art of Mano K stationery",
     badge: 'Verified buyer',
   },
   {
@@ -661,8 +663,8 @@ export const TESTIMONIALS = [
     author: 'Tara A.',
     source: 'via Instagram',
     rating: 5,
-    image: PRODUCT_IMAGES.spiralWhite,
-    alt: 'A spiral notebook and pen on a clean white desk',
+    image: '/assets/images/testimonial-3.png',
+    alt: "Tara A.'s review featuring Art of Mano K stationery",
     badge: 'Repeat customer',
   },
   {
@@ -673,8 +675,8 @@ export const TESTIMONIALS = [
     author: 'Ria S.',
     source: 'via WhatsApp',
     rating: 5,
-    image: PRODUCT_IMAGES.notebookGlasses,
-    alt: 'An open notebook with a fountain pen and reading glasses',
+    image: '/assets/images/testimonial-4.png',
+    alt: "Ria S.'s review featuring Art of Mano K stationery",
     badge: 'Customer favourite',
   },
   {
@@ -685,8 +687,8 @@ export const TESTIMONIALS = [
     author: 'Amna H.',
     source: 'via Instagram',
     rating: 5,
-    image: PRODUCT_IMAGES.openBookShelf,
-    alt: 'An open book and journal in front of a bookshelf',
+    image: '/assets/images/testimonial-5.png',
+    alt: "Amna H.'s review featuring Art of Mano K stationery",
     badge: 'Verified buyer',
   },
   {
@@ -697,8 +699,44 @@ export const TESTIMONIALS = [
     author: 'Sara F.',
     source: 'via review form',
     rating: 5,
-    image: PRODUCT_IMAGES.poetryBook,
-    alt: 'A small journal styled on a wooden table',
+    image: '/assets/images/testimonial-6.png',
+    alt: "Sara F.'s review featuring Art of Mano K stationery",
+    badge: 'Repeat customer',
+  },
+  {
+    id: 'maya',
+    title: 'Genuinely the prettiest stationery',
+    quote:
+      'Opened the parcel and just stared. The ribbon, the tissue, the cards — everything felt so thought-through. Five stars and then some.',
+    author: 'Maya R.',
+    source: 'via Instagram',
+    rating: 5,
+    image: '/assets/images/testimonial-7.png',
+    alt: "Maya R.'s review featuring Art of Mano K stationery",
+    badge: 'Customer favourite',
+  },
+  {
+    id: 'zara',
+    title: 'A small ritual every morning',
+    quote:
+      'Bought the journal on a whim, and now writing in it before work has become my favourite part of the day. Worth every rupee.',
+    author: 'Zara N.',
+    source: 'via WhatsApp',
+    rating: 5,
+    image: '/assets/images/testimonial-8.png',
+    alt: "Zara N.'s review featuring Art of Mano K stationery",
+    badge: 'Verified buyer',
+  },
+  {
+    id: 'aisha',
+    title: 'Will absolutely order again',
+    quote:
+      'The stickers, the memo pad, the little extras — felt like a love letter in a box. Already planning my next order for a friend.',
+    author: 'Aisha B.',
+    source: 'via review form',
+    rating: 5,
+    image: '/assets/images/testimonial-9.png',
+    alt: "Aisha B.'s review featuring Art of Mano K stationery",
     badge: 'Repeat customer',
   },
 ]
