@@ -14,7 +14,7 @@ import {
   TikTokIcon,
 } from '@/components/ui/icons'
 import { BRAND } from '@/constants/assets'
-import { FOOTER_LINKS, SITE_CONFIG } from '@/constants/site'
+import { SITE_CONFIG } from '@/constants/site'
 
 const SOCIAL_ICON = {
   instagram: InstagramIcon,
@@ -63,32 +63,24 @@ const Footer = () => {
     <footer className="relative bg-ink text-white">
       <Container>
         <div className="space-y-12 py-16 md:py-20 lg:grid lg:grid-cols-12 lg:gap-12 lg:space-y-0 lg:py-24">
-          <div className="lg:col-span-4">
+          <div className="flex flex-col items-start lg:col-span-4">
             <Link
               href="/"
               aria-label={`${SITE_CONFIG.name} — ${SITE_CONFIG.fullName}`}
-              className="inline-flex items-center"
+              className="block"
             >
               <Image
                 src={BRAND.footerLogo}
                 alt={SITE_CONFIG.fullName}
-                width={300}
-                height={68}
-                sizes="160px"
-                className="h-10 w-auto invert"
+                width={371}
+                height={181}
+                sizes="(min-width: 1024px) 220px, (min-width: 768px) 200px, 180px"
+                className="h-auto w-44 max-w-full md:w-48 lg:w-52"
               />
             </Link>
-            <Image
-              src={BRAND.footerLogo}
-              alt={SITE_CONFIG.fullName}
-              width={371}
-              height={181}
-              sizes="(min-width: 1024px) 220px, (min-width: 768px) 200px, 180px"
-              className="mt-6 h-auto w-44 max-w-full md:w-48 lg:w-52"
-            />
             <a
               href={`mailto:${SITE_CONFIG.email}`}
-              className="mt-6 inline-block text-[13px] tracking-wide text-white/60 transition-colors hover:text-white"
+              className="mt-6 text-[13px] tracking-wide text-white/60 transition-colors hover:text-white"
             >
               {SITE_CONFIG.email}
             </a>
@@ -168,22 +160,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="border-t border-white/10 py-6">
           <p className="text-[11px] uppercase tracking-[0.28em] text-white/55">
             &copy; {year} {SITE_CONFIG.fullName}. All rights reserved.
           </p>
-          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            {FOOTER_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-[11px] uppercase tracking-[0.28em] text-white/55 transition-colors hover:text-white"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </Container>
 

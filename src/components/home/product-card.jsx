@@ -1,13 +1,13 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import PropTypes from 'prop-types'
 
 import { CartPlusIcon, EyeIcon, HeartIcon } from '@/components/ui/icons'
+import SafeImage from '@/components/ui/safe-image'
 import { cn } from '@/lib/cn'
-import { PRODUCT_CURRENCY } from '@/constants/site'
+import { PRODUCT_CURRENCY, findCategory } from '@/constants/site'
 import { useCart } from '@/components/providers/cart-context'
 import { useUI } from '@/components/providers/ui-context'
 
@@ -28,12 +28,13 @@ const stopAnd = (fn) => (e) => {
 }
 
 const ProductCard = ({ product }) => {
-  const { title, image, alt, price, originalPrice, badge, discountPercent, href } = product
+  const { title, image, alt, price, originalPrice, badge, discountPercent, href, category } = product
   const router = useRouter()
   const { addItem } = useCart()
   const { openCart } = useUI()
   const isSoldOut = badge === 'soldout'
   const isOnSale = badge === 'sale'
+  const categoryLabel = category ? findCategory(category)?.label : null
 
   const handleQuickView = stopAnd(() => router.push(href))
   const handleWishlist = stopAnd(() => {
@@ -57,22 +58,23 @@ const ProductCard = ({ product }) => {
         href={href}
         aria-label={`View ${title}`}
         tabIndex={isSoldOut ? -1 : 0}
-        className="absolute inset-0 z-0 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 focus-visible:ring-offset-2"
+        className="absolute inset-0 z-0 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 focus-visible:ring-offset-2"
       >
         <span className="sr-only">View {title}</span>
       </Link>
 
       <div
         className={cn(
-          'relative w-full overflow-hidden rounded-sm bg-muted transition-shadow',
+          'relative w-full overflow-hidden rounded-2xl bg-muted ring-1 ring-black/[0.05] transition-all',
           DURATION_MEDIUM,
           EASE,
           'shadow-[0_1px_2px_rgba(15,15,15,0.04)]',
-          'group-hover/card:shadow-[0_24px_48px_-24px_rgba(15,15,15,0.18),0_8px_18px_-12px_rgba(15,15,15,0.12)]',
+          'group-hover/card:ring-black/[0.10]',
+          'group-hover/card:shadow-[0_30px_60px_-28px_rgba(15,15,15,0.22),0_10px_22px_-14px_rgba(15,15,15,0.12)]',
         )}
       >
         <div className="relative aspect-square w-full overflow-hidden">
-          <Image
+          <SafeImage
             src={image}
             alt={alt || title}
             fill
@@ -82,25 +84,34 @@ const ProductCard = ({ product }) => {
               DURATION_SLOW,
               EASE,
               'group-hover/card:scale-[1.05]',
-              isSoldOut && 'opacity-90',
+              isSoldOut && 'opacity-85',
+            )}
+          />
+          <span
+            aria-hidden
+            className={cn(
+              'pointer-events-none absolute inset-0 bg-gradient-to-t from-black/[0.06] via-transparent to-transparent opacity-0 transition-opacity',
+              DURATION_MEDIUM,
+              EASE,
+              'group-hover/card:opacity-100',
             )}
           />
         </div>
 
         {isSoldOut && (
-          <span className="pointer-events-none absolute right-3 top-3 z-10 inline-flex items-center rounded-full bg-foreground px-3 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-background">
+          <span className="pointer-events-none absolute left-3 top-3 z-10 inline-flex items-center rounded-full bg-foreground/95 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-background backdrop-blur-sm">
             Sold out
           </span>
         )}
         {!isSoldOut && isOnSale && discountPercent != null && (
-          <span className="pointer-events-none absolute right-3 top-3 z-10 inline-flex items-center rounded-full bg-[#e23b3b] px-3 py-1 text-[10px] font-medium tracking-[0.04em] text-white">
+          <span className="pointer-events-none absolute left-3 top-3 z-10 inline-flex items-center rounded-full bg-white/92 px-2.5 py-1 text-[10.5px] font-semibold tracking-[0.04em] text-foreground shadow-[0_2px_10px_-2px_rgba(15,15,15,0.18)] ring-1 ring-black/[0.06] backdrop-blur-sm">
             −{discountPercent}%
           </span>
         )}
 
         <div
           className={cn(
-            'absolute right-3 top-12 z-10 flex translate-x-3 flex-col gap-2 opacity-0 transition-all',
+            'absolute right-3 top-3 z-10 flex translate-x-3 flex-col gap-2 opacity-0 transition-all',
             DURATION_MEDIUM,
             EASE,
             'group-hover/card:translate-x-0 group-hover/card:opacity-100',
@@ -161,24 +172,22 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
 
-      <div className="mt-4 flex flex-1 flex-col">
-        <h3
-          className={cn(
-            'line-clamp-2 min-h-[40px] text-[13px] font-normal leading-[1.4] tracking-tight text-foreground transition-colors',
-            DURATION_MEDIUM,
-            EASE,
-            'group-hover/card:text-foreground/65',
-          )}
-        >
+      <div className="mt-5 flex flex-1 flex-col px-0.5">
+        {categoryLabel && (
+          <p className="text-[10px] font-medium uppercase tracking-[0.26em] text-muted-foreground/85">
+            {categoryLabel}
+          </p>
+        )}
+        <h3 className="font-display mt-2.5 line-clamp-2 text-[18px] font-light italic leading-[1.2] tracking-[-0.005em] text-foreground sm:text-[20px]">
           {title}
         </h3>
-        <div className="mt-1.5 flex items-baseline gap-2 text-[13px] tracking-[0.02em] text-foreground">
+        <div className="mt-2.5 flex items-baseline gap-2.5 text-foreground">
           {originalPrice && (
-            <span className="text-muted-foreground line-through">
+            <span className="text-[13px] text-muted-foreground line-through">
               {formatPrice(originalPrice)}
             </span>
           )}
-          <span className={cn('font-medium', isOnSale && 'text-[#e23b3b]')}>
+          <span className="text-[14px] font-semibold tracking-[0.01em]">
             {formatPrice(price)}
           </span>
         </div>

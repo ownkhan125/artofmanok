@@ -4,7 +4,6 @@ import {
   HOME_CLASSIC_BANNER,
   HOME_CLASSIC_SHOWCASES,
   HOME_HERO,
-  HOME_PROMO_BANNER,
   PRODUCT_PHOTOS,
   SHOP_MENU_FEATURED,
 } from './assets'
@@ -116,13 +115,6 @@ export const HERO_SLIDES = [
     imageAlt: HOME_HERO[2].alt,
     align: 'left',
   },
-]
-
-export const FOOTER_LINKS = [
-  { href: '/privacy', label: 'Privacy Policy' },
-  { href: '/terms', label: 'Terms & Conditions' },
-  { href: '/faq', label: "FAQ's" },
-  { href: '/about', label: 'About Us' },
 ]
 
 export const SHOP_CATEGORIES = [
@@ -619,15 +611,9 @@ export const SHOP_BUNDLES = [
 ]
 
 export const PROMO_BANNER = {
-  eyebrow: 'Where practice meets paper',
-  headline: 'Built for desks that mean something.',
-  tagline:
-    'Tools we’d pick for our own studio — made to be used, not displayed.',
-  cta: 'Read our story',
-  href: '/about',
-  imageDesktop: HOME_PROMO_BANNER.desktop,
-  imageMobile: HOME_PROMO_BANNER.mobile,
-  imageAlt: HOME_PROMO_BANNER.alt,
+  headline: 'WHERE PRETTY MEETS PRACTICAL',
+  paragraph:
+    'Mano.k Studios is about breaking the ordinary and redefining stationery aesthetics. We create dreamy, carefully designed pieces that turn everyday moments into something beautiful.',
 }
 
 export const TESTIMONIALS = [

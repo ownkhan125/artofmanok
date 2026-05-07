@@ -34,20 +34,23 @@ export const HOME_HERO = [
   },
 ]
 
+// NOTE: dummy stand-ins re-using existing local files in /assets/images/.
+// Replace each `image:` path with the real category photo when provided.
 export const HOME_CATEGORIES = {
-  calendar:   { image: '/assets/images/category-calendar.jpg',    alt: 'A spiral notebook and pen on a clean white desk' },
-  washiTapes: { image: '/assets/images/category-washi-tapes.jpg', alt: 'A fountain pen close-up on a handwritten page' },
-  stickers:   { image: '/assets/images/category-stickers.jpg',    alt: 'An open notebook with a fountain pen and reading glasses' },
-  journals:   { image: '/assets/images/category-journals.jpg',    alt: 'A poetry book resting on a small wooden table' },
-  bookmarks:  { image: '/assets/images/category-bookmarks.jpg',   alt: 'An open book resting on a journal with a bookshelf behind' },
-  cards:      { image: '/assets/images/category-cards.jpg',       alt: 'Handwritten cursive on lined paper with a fountain pen' },
-  memoPads:   { image: '/assets/images/category-memo-pads.jpg',   alt: 'A clean spiral notebook on a desk' },
-  bundles:    { image: '/assets/images/category-bundles.jpg',     alt: 'A neat workspace with a notebook and pen' },
+  calendar:   { image: '/assets/images/hero-section-1.png',     alt: 'A spiral notebook and pen on a clean white desk' },
+  washiTapes: { image: '/assets/images/hero-section-2.png',     alt: 'A fountain pen close-up on a handwritten page' },
+  stickers:   { image: '/assets/images/hero-section-3.png',     alt: 'An open notebook with a fountain pen and reading glasses' },
+  journals:   { image: '/assets/images/hero-section-4.png',     alt: 'A poetry book resting on a small wooden table' },
+  bookmarks:  { image: '/assets/images/about-established.jpg',  alt: 'An open book resting on a journal with a bookshelf behind' },
+  cards:      { image: '/assets/images/about-mission.jpg',      alt: 'Handwritten cursive on lined paper with a fountain pen' },
+  memoPads:   { image: '/assets/images/classic-desktop.jpg',    alt: 'A clean spiral notebook on a desk' },
+  bundles:    { image: '/assets/images/Classic-collection-2.jpg', alt: 'A neat workspace with a notebook and pen' },
 }
 
 export const HOME_CLASSIC_BANNER = {
   desktop: '/assets/images/classic-desktop.jpg',
-  mobile: '/assets/images/classic-mobile.jpg',
+  // No mobile-cropped variant on disk yet — reuse desktop and let object-cover crop.
+  mobile: '/assets/images/classic-desktop.jpg',
   alt: 'A leather-bound journal open on a desk with books arranged behind',
 }
 
@@ -88,8 +91,10 @@ export const ABOUT_IMAGES = {
   },
 }
 
+// NOTE: dummy stand-ins re-using existing local files in /assets/images/.
+// Replace each path with the real menu-featured image when provided.
 export const SHOP_MENU_FEATURED = {
-  leatherJournals:    '/assets/images/menu-featured-leather.jpg',
-  pinterestInspired:  '/assets/images/menu-featured-pinterest.jpg',
-  washiSticker:       '/assets/images/menu-featured-washi.jpg',
+  leatherJournals:    '/assets/images/about-established.jpg',
+  pinterestInspired:  '/assets/images/about-mission.jpg',
+  washiSticker:       '/assets/images/Classic-collection-2.jpg',
 }

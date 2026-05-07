@@ -1,11 +1,11 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { useCart } from '@/components/providers/cart-context'
 import { useUI } from '@/components/providers/ui-context'
 import { CloseIcon, ArrowRightIcon } from '@/components/ui/icons'
+import SafeImage from '@/components/ui/safe-image'
 import { cn } from '@/lib/cn'
 import { PRODUCT_CURRENCY } from '@/constants/site'
 
@@ -85,7 +85,7 @@ const CartDrawer = () => {
               {items.map((it) => (
                 <li key={it.id} className="flex gap-4 py-5">
                   <div className="relative size-20 shrink-0 overflow-hidden rounded-sm bg-muted">
-                    <Image
+                    <SafeImage
                       src={it.image}
                       alt={it.alt || it.title}
                       fill

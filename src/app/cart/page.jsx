@@ -1,12 +1,12 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 
 import Container from '@/components/ui/container'
 import PageHero from '@/components/ui/page-hero'
 import ProductCard from '@/components/home/product-card'
 import { ArrowRightIcon, CloseIcon } from '@/components/ui/icons'
+import SafeImage from '@/components/ui/safe-image'
 import { useCart } from '@/components/providers/cart-context'
 import { ALL_PRODUCTS, PRODUCT_CURRENCY } from '@/constants/site'
 
@@ -64,7 +64,7 @@ const CartPage = () => {
                           href={it.href}
                           className="relative size-24 shrink-0 overflow-hidden rounded-sm bg-muted"
                         >
-                          <Image
+                          <SafeImage
                             src={it.image}
                             alt={it.alt || it.title}
                             fill

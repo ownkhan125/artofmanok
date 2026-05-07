@@ -1,11 +1,11 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
 import Container from '@/components/ui/container'
 import { CartPlusIcon, StarIcon } from '@/components/ui/icons'
+import SafeImage from '@/components/ui/safe-image'
 import { useCart } from '@/components/providers/cart-context'
 import { useUI } from '@/components/providers/ui-context'
 import { cn } from '@/lib/cn'
@@ -49,7 +49,7 @@ const ProductDetail = ({ product }) => {
         <div className="grid gap-10 py-10 md:py-14 lg:grid-cols-12 lg:gap-14 lg:py-16">
           <div className="lg:col-span-6">
             <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-muted">
-              <Image
+              <SafeImage
                 src={product.image}
                 alt={product.alt || product.title}
                 fill
@@ -74,7 +74,7 @@ const ProductDetail = ({ product }) => {
                   key={i}
                   className="relative aspect-square overflow-hidden rounded-sm bg-muted"
                 >
-                  <Image
+                  <SafeImage
                     src={product.image}
                     alt={`${product.title} thumbnail ${i + 1}`}
                     fill

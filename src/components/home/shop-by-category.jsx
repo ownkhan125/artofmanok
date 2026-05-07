@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
@@ -11,6 +10,7 @@ import 'swiper/css'
 
 import Container from '@/components/ui/container'
 import { ArrowRightIcon } from '@/components/ui/icons'
+import SafeImage from '@/components/ui/safe-image'
 import { SHOP_CATEGORY_TILES } from '@/constants/site'
 
 const sectionVariants = {
@@ -126,7 +126,7 @@ const ShopByCategory = () => {
                     className="block w-full overflow-hidden bg-muted"
                   >
                     <div className="relative aspect-[4/5] w-full overflow-hidden">
-                      <Image
+                      <SafeImage
                         src={tile.image}
                         alt={tile.alt || tile.label}
                         fill

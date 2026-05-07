@@ -96,7 +96,7 @@ const FaqSection = () => {
     <section
       ref={sectionRef}
       aria-labelledby="faq-heading"
-      className="bg-background py-20 md:py-24 lg:py-28"
+      className="bg-background pb-20 md:pb-24 lg:pb-28"
     >
       <Container>
         <motion.div
