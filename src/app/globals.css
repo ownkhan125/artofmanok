@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #0b0b0b;
+  --color-muted: #f4f1ec;
+  --color-muted-foreground: #6b6b6b;
+  --color-border: #e6e2db;
+  --color-ink: #0b0b0b;
+  --color-cream: #f5f1e9;
+  --color-paper: #faf7f1;
+  --color-pink: #f5d2dd;
+  --color-pink-soft: #fbf3ec;
+
+  --font-sans: var(--font-albert-sans), 'Albert Sans', Arial, sans-serif;
+  --font-display: var(--font-fraunces), 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-pill: 999px;
+
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 1s ease both;
+  --animate-image-reveal: image-reveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-marquee: marquee 38s linear infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes image-reveal {
+    from { opacity: 0; transform: scale(1.05); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+/*
+ * Restore cursor: pointer on native interactive elements.
+ * Tailwind v4 preflight removed the v3 default cursor:pointer on <button>,
+ * so this brings every clickable element back to a consistent affordance.
+ */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+[role="tab"]:not([aria-disabled="true"]),
+[role="menuitem"]:not([aria-disabled="true"]),
+select:not(:disabled),
+summary,
+label[for]:not([aria-disabled="true"]),
+input[type="submit"]:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled) {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"],
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: 'ss01', 'ss02';
+}
+
+.hero-bullet {
+  width: 28px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  display: inline-block;
+  transition: background 400ms ease, width 400ms ease;
+}
+
+.hero-bullet--active {
+  background: #ffffff;
+  width: 44px;
+}
+
+.swiper-button-disabled {
+  opacity: 0.35 !important;
+  pointer-events: none;
+}
