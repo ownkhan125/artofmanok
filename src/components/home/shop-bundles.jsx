@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, A11y, FreeMode } from 'swiper/modules'
+import { Navigation, A11y, Autoplay, FreeMode } from 'swiper/modules'
 
 import 'swiper/css'
 
@@ -96,12 +96,14 @@ const ShopBundles = () => {
 
         <div className="relative mt-12 lg:mt-16">
           <Swiper
-            modules={[Navigation, A11y, FreeMode]}
+            modules={[Navigation, A11y, Autoplay, FreeMode]}
             onSwiper={(s) => (swiperRef.current = s)}
             slidesPerView={1.3}
             spaceBetween={20}
             speed={800}
             grabCursor
+            loop
+            autoplay={{ delay: 1500, disableOnInteraction: false, pauseOnMouseEnter: true }}
             a11y={{ enabled: true }}
             breakpoints={{
               640: { slidesPerView: 2.2, spaceBetween: 24 },

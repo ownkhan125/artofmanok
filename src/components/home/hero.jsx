@@ -45,7 +45,7 @@ const Hero = () => {
         fadeEffect={{ crossFade: true }}
         speed={1200}
         loop
-        autoplay={{ delay: 6000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+        autoplay={{ delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: true }}
         pagination={{
           el: '.hero-pagination',
           clickable: true,
